@@ -1,0 +1,58 @@
+<?php
+include('db.php');
+session_start();
+error_reporting(0);
+
+$log_query ="SELECT * FROM users WHERE email='$email'";
+$run_log_query =mysqli_query($conn,$log_query);
+$log_result = mysqli_fetch_assoc($run_log_query);
+
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipes</title>
+ 
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon" />
+
+    <link rel="stylesheet" href="./css/normalize.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+  <body>
+
+    <-- <nav class="navbar">
+      <div class="nav-center">
+        <div class="nav-header">
+          <a href="index.php" class="nav-logo">
+            Recipe<span>Bangladesh</span>
+          </a>
+          <button class="nav-btn btn">
+            <i class="fas fa-align-justify"></i>
+          </button>
+        </div>
+        <div class="nav-links">
+          <a href="index.php" class="nav-link"> Home </a>
+          <a href="tags.php" class="nav-link"> Tags </a>
+          <a href="recipes.php" class="nav-link"> Recipes </a>
+		  <a href="about.php" class="nav-link"> About </a>
+		  <a href="message.php" class="nav-link"> Message </a>
+
+          <div class="nav-link contact-link">
+            <a href="contact.php" class="btn btn-green"> contact </a>
+            <a href="profile.php" class="btn btn-green">Profile </a>
+          </div>
+        </div>
+      </div>
+    </nav>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

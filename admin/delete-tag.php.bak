@@ -1,0 +1,9 @@
+<?php 
+include 'db.php';
+$id = $_GET['id'];
+$delete_query = "DELETE from recipe  WHERE id='$id'";
+mysqli_query($conn,$delete_query);
+header("location:all-recipe.php");
+
+
+?>

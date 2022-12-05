@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap');
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@1,300;1,700&family=Raleway:wght@400;500&display=swap");
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	text-decoration: none !important;
+}
+
+a {
+	color: inherit !important;
+}
+
+h1,
+h2,
+h3,
+h4 {
+	font-family: "Montserrat Alternates", sans-serif;
+}
+
+/* font-family: 'Raleway', sans-serif; */
+
+.top {
+	background: url("https://media.istockphoto.com/photos/culinary-background-with-spices-and-recipe-book-picture-id607299402?k=20&m=607299402&s=612x612&w=0&h=kyjzviV27vVh7UpW1gj_jUm26umMdS17NJvhz4wls8s=");
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 250px;
+	position: relative;
+	background-position: center;
+}
+.overlay {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+}
+.logo {
+	position: relative;
+	text-align: center;
+	padding-top: 5rem;
+	color: #fff;
+	/* width: max-content; */
+	display: flex;
+	/* align-items: center; */
+	justify-content: center;
+}
+.top .logo h2 {
+	text-align: center;
+	font-size: 3rem;
+	font-weight: bold;
+	letter-spacing: 5px;
+	color: #fff;
+}
+
+.top .logo h2 span {
+	font-weight: 300;
+	color: #2fd186;
+}
+
+.socialshare-section {
+	background: lightgray;
+}
+
+.navs ul {
+	list-style: none;
+	display: flex;
+	gap: 2rem;
+	font-family: "Raleway", sans-serif;
+	padding: 0.75rem 0;
+	/* text-align: center; */
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 0;
+	font-weight: 600;
+}
+.navs ul li {
+	letter-spacing: 2px;
+	transition: 400ms all ease;
+}
+.navs ul li:hover {
+	color: #2fd186;
+}
+
+.blog__top {
+	margin: 4rem 0;
+}
+.blog__top .blogtop__img {
+	position: relative;
+	width: 100%;
+	object-fit: cover;
+}
+
+.contents {
+	position: relative;
+}
+
+.desc {
+	position: absolute;
+	top: 170px;
+	padding: 1rem;
+	color: #fff;
+}
+.overlayImg {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+}
+.desc h2 {
+	font-size: 1rem;
+	font-weight: 700;
+}
+.desc article {
+	font-size: 0.75rem;
+	font-weight: 300;
+	color: lightgray;
+	font-family: "Raleway", sans-serif;
+}
+.desc button {
+	margin: 2rem 0;
+	padding: 0.5rem 0.84rem;
+	border: 1px solid transparent;
+	border-radius: 0.5rem;
+	font-weight: 600;
+	background-color: #2fd186;
+	color: #fff;
+	font-family: "Raleway", sans-serif;
+	letter-spacing: 2px;
+	transition: 400ms all ease;
+}
+.desc button:hover {
+	background-color: transparent;
+	border-color: #2fd186;
+}
+.newsletter {
+	background: rgba(0, 128, 0, 0.425);
+	margin: 3rem 0;
+}
+.news__title {
+	font-size: 1.5rem;
+	text-align: center;
+	font-family: "Raleway", sans-serif;
+}
+.newsletter__contents {
+	display: flex;
+	gap: 1rem;
+}
+
+.newsletter__contents button {
+	padding: 0.5rem 0.55rem;
+	border: navajowhite;
+	border-radius: 0.55rem;
+	cursor: pointer;
+	font-weight: 600;
+	letter-spacing: 1px;
+	background-color: #2fd186;
+	font-family: "Raleway", sans-serif;
+	color: #fff;
+}
+
+.card__button {
+	margin: 2rem 0;
+	padding: 0.5rem 0.84rem;
+	border: 1px solid transparent;
+	border-radius: 0.5rem;
+	font-weight: 600;
+	background-color: #2fd186;
+	color: #fff;
+	font-family: "Raleway", sans-serif;
+	letter-spacing: 2px;
+	transition: 400ms all ease;
+}
+.card__button:hover {
+	background-color: transparent;
+	border-color: #2fd186;
+}
+.author__time {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 1rem 0;
+	color: lightgray;
+}
+.author__time h5 {
+	font-size: 1rem;
+}
+.author__time h5 span {
+	font-size: 1rem;
+	/* font-family: "Montserrat Alternates", sans-serif; */
+}
+.blog {
+	margin: 2rem 0;
+}
+
+
+
+
+body{
+    font-family: 'Quicksand', sans-serif;
+}
+.underline{
+    height: 3px;
+    width: 100px;
+    background-color: #2fd186;
+}
+.btn:focus{
+    outline: none!important;
+    box-shadow: none!important;
+}
+.btn-primary{
+    background-color: #fff!important;
+    border: none;
+}
+.btn-primary:hover{
+    background-color: #2fd186 !important;
+    color: #fff!important;
+}
+
+.product-item{
+    border: 1px solid #ebebeb;
+    border-radius: 4px;
+    position: relative;
+}
+.product-img:hover::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}

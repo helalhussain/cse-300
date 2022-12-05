@@ -1,0 +1,102 @@
+<?php include('header.php'); ?>
+    
+    <main class="page">
+     <section class="contact-container">
+          <article class="contact-info">
+            <h3>Want To Get In Touch?</h3>
+            <p>
+             Our team is eager to answer any questions you may have regarding our memberships and recipes. 
+			 Fill out the form below and a customer service representative will get back to you shortly.
+            </p>
+          </article>
+          <article>
+            <form class="form contact-form" method="POST">
+              <div class="form-row">
+                <label html="name" class="form-label">your name</label>
+                <input type="text" name="name" value="<?php echo $log_result['name']; ?>" id="name" class="form-input" />
+              </div>
+              <div class="form-row">
+                <label html="email" class="form-label">your email</label>
+                <input type="text" name="email" value="<?php echo $log_result['email']; ?>" id="email" class="form-input" />
+              </div>
+              <div class="form-row">
+                <label html="message" class="form-label">message</label>
+                <textarea name="message" id="message" class="form-textarea"></textarea>
+              </div>
+              <button type="submit" name="send" class="btn btn-green">
+                submit
+              </button>
+            </form>
+          </article>
+        </section><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!---------------------Send contact message-------------------->
+        <?php 
+include('db.php');
+if(isset($_POST['send'])){
+  $name =$_POST['name'];
+  $password =$_POST['password'];
+  $email = $_POST['email'];
+  $message = $_POST['message'];
+  $date =date("h:m:a d-m-Y");
+  $status =1;
+  $reg_query = "INSERT INTO contact VALUES(NULL,'$email','$message','$date','$status')";
+  $query_run =mysqli_query($conn,$reg_query);
+  if($query_run){
+    echo "<script>alert('Message sended');</script>";
+  }else
+  {
+    echo "<script>alert('Message send failed');</script>";
+  }
+  
+}
+?>
+     
+       <section class="featured-recipes">
+        <h5 class="featured-title">Look At This Awesomeness!</h5>
+        <div class="recipes-list">
+          
+          <a href="single-recipe.php" class="recipe">
+            <img
+              src="./assets/recipes/recipe-1.jpeg"
+              class="img recipe-img"
+              alt=""
+            />
+            <h5>Carne Asada</h5>
+            <p>Prep Time : 15min | Cooking Time : 5min</p>
+          </a>
+          
+          
+          <a href="single-recipe.php" class="recipe">
+            <img
+              src="./assets/recipes/recipe-2.jpeg"
+              class="img recipe-img"
+              alt=""
+            />
+            <h5>Beef Ribs</h5>
+            <p>Prep Time : 15min | Cooking Time : 5min</p>
+          </a>
+          
+          
+          <a href="single-recipe.html" class="recipe">
+            <img
+              src="./assets/recipes/recipe-3.jpeg"
+              class="img recipe-img"
+              alt=""
+            />
+            <h5>Vegetable Soup</h5>
+            <p>Prep Time : 15min | Cooking Time : 5min</p>
+          </a>
+        
+        </div>
+      </section>
+    </main>
+    
+    <footer class="page-footer">
+      <p>
+        &copy; <span id="date"></span>
+        <span class="footer-logo">Recipe Bangladesh</span> Built by Wazad Akhlak Choudhury
+      </p>
+    </footer>
+    <script src="./js/app.js"></script>
+  </body>
+</html>

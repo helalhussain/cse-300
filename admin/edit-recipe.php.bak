@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href='/RecipeBD/admin/assets/bootstrap/css/bootstrap.min.css'>
+    <link rel=" stylesheet" href='/RecipeBD/admin/assets/css/style.css'>
+    <link rel="stylesheet" href='/RecipeBD/admin/assets/font-awesome/css/font-awesome.min.css'>
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <title>RecipeBD || Dashboard</title>
+<style>
+* {
+	list-style: none;
+}
+.nabMenuBar {
+	color: #000000 !important;
+	font-size: 24px !important;
+}
+
+.nav-menu-item {
+	text-decoration: none;
+	color: #ffffff;
+	padding: 0.25rem 0rem;
+	display: block;
+}
+
+.nav-menu-item:hover {
+	text-decoration: none;
+	color: #c7c5c8;
+	transition: 0.1s;
+}	
+.sideNav {
+	height: 100%;
+	width: 200px;
+	position: fixed;
+	top: 55px;
+	left: -1px;
+	z-index: 9 !important;
+	overflow-x: hidden;
+	padding-left: 10px;
+	padding-top: 0px;
+	transition: 0.5s;
+}
+#admin_root {
+	margin-left: 200px;
+	margin-top: 60px;
+}
+
+.modal_close {
+	position: relative;
+	top: -40px;
+	right: -260px;
+	cursor: pointer;
+	/* display: none; */
+}
+
+.contact-wrapper {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 2rem;
+}
+
+.contact__side-img {
+	flex: 3;
+}
+
+.contact__side-img img {
+	display: block;
+	width: 100%;
+	object-fit: cover;
+}
+
+.form {
+	background: #d8f3dc7e;
+	height: 100vh;
+	width: 100vw;
+	padding: 8rem 5rem 0 5rem;
+	flex: 2;
+}
+
+.form h2 {
+	border-bottom: 1px solid #95d5b2;
+	width: 50%;
+	margin: 0 auto;
+	text-align: center;
+	margin-bottom: 2rem;
+	padding-bottom: 1rem;
+	font-weight: 700;
+}
+
+.form .btn {
+	display: block;
+	margin-top: 0 auto;
+}
+.about__wrapper {
+	background: #95d5b2 !important;
+}
+.about__wrapper h3 {
+	border-bottom: 1px solid #95d5b2;
+	width: 100%;
+	/* margin: 0 auto;
+	text-align: center; */
+	margin: 2rem 0 2rem 0;
+	padding-bottom: 1rem;
+	font-weight: 700;
+}
+
+.about__list {
+	display: flex;
+	gap: 2rem;
+}
+
+.about__wrapper ul li {
+	margin-bottom: 2rem;
+}
+
+</style>
+</head>
+
+<body id="admin_root">
+
+    <?php include 'header.php' ?>
+    <?php include 'db.php' ?>
+<?php $get_id = $_GET['id']; 
+$edit_sql =  "SELECT * FROM recipe WHERE id='$get_id'";
+$edit_result = mysqli_query($conn, $edit_sql);
+$edit = mysqli_fetch_assoc($edit_result); 
+
+?>
+    <div class="container my-5"><br/><br/>
+            <div class="row">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6">
+                    <div class="card p-4">
+                        <h4 class="text-center">Change Recipe</h4>
+                <form action="" method='post' enctype="multipart/form-data">
+             
+                     <div class="form-group">
+                        <label for="pheight">Change Title:</label>
+                        <input type="text" value="<?php echo $edit['title']; ?>" placeholder="Enter new Title" class="form-control my-1" id="pheight" name="Title">
+						<label for="pheight">Change Prep Time:</label>
+                        <input type="text" value="<?php echo $edit['Prep Time']; ?>" placeholder="Enter new prep time" class="form-control my-1" id="pheight" name="Prep Time">
+						<label for="pheight">Change Cooking Time:</label>
+                        <input type="text" value="<?php echo $edit['Cooking Time']; ?>" placeholder="Enter new Cooking Time" class="form-control my-1" id="pheight" name="Cooking Time">
+						<label for="pheight">Change Serving:</label>
+                        <input type="text" value="<?php echo $edit['Serving']; ?>" placeholder="Enter new serving" class="form-control my-1" id="pheight" name="Serving">
+						<label for="pheight">Change Tags:</label>
+                        <input type="text" value="<?php echo $edit['tag']; ?>" placeholder="Enter new Tags" class="form-control my-1" id="pheight" name="Tags">
+						<label for="pheight">Change Category:</label>
+                        <input type="text" value="<?php echo $edit['category']; ?>" placeholder="Enter new Category" class="form-control my-1" id="pheight" name="Category">
+					</div>
+            
+                    <button type="submit" name="change" class="btn btn-dark w-100 my-3">Submit</button>
+                </form>
+                </div>
+                </div>
+                <div class="col-lg-3"></div>
+            </div>
+    </div>
+
+<?php
+if(isset($_POST['change'])){
+    $get_id = $_GET['id']; 
+    $title= $_POST['title'];
+	$prep_time=$_POST['Prep Time'];
+	$cooking_time=$_POST['Cooking Time'];
+	$serving=$_POST['Serving'];
+	$tags=$_POST['tag'];
+	$category=$_POST['category'];
+	$edit_query ="UPDATE recipe SET title='$title', Prep Time='$prep_time', Cooking Time='$cooking_time', Serving='$serving', tag='$tags', category='$category' WHERE id='$get_id'";
+    $query = mysqli_query($conn,$edit_query);
+
+    header('Location:all-recipe.php');
+
+			
+		}
+
+
+
+?>
+
+    <!--  JS Files -->
+    <script src='/RecipeBD/admin/assets/bootstrap/js/bootstrap.bundle.js'></script>
+    <script src='/RecipeBD/admin/assets/js/app.js'></script>
+
+</body>
+
+</html>
